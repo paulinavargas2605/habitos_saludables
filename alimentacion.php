@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
+    <img src="images/logo1.png" class="logo">
+        <nav>
+            <a href="inicio.php">Inicio</a>
+            <a href="rutina.php">Rutinas</a>
+            <a href="alimentacion.php">Alimentación</a>
+        </nav>
+    </header>
     <h1>Habitos de alimentación</h1>
 
     <h2>DESAYUNOS</h2>
@@ -89,5 +97,9 @@ Lechuga, tomate, zanahoria rallada, atún en agua.
 
 Limón y aceite de oliva como aderezo.
     </textarea>
+
+    <footer>
+        &copy:2025 FitCheck (Todos los derechos reservados)
+    </footer>
 </body>
 </html>
