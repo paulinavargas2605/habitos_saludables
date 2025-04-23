@@ -1,16 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 header{
-    height: 100 px;
+    height: 100px;
     padding: 0 50px;
     color: aliceblue;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(180, 219, 255);
+    font-size: 30px;
 }
 
+.logo {
+    height: 100px;
+    margin-right: auto;
+}
+
+
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+h1{
+    text-align: left;
+
+}
+
+#banner{
+    padding: 0 50px;
+    background-image: url(./images/banner.jpeg);
+    height: 50vh;
+    background-size:cover;
+    background-position:center;
+}
+
+.contenido-banner h3{
+    font-size: 30px;
+    font-weight: 400;
+    padding: 10px 0;
+    font-family: italic;
+}
+
+.contenido-banner h3 span{
+    font-weight: 600;
+}
+
+.contenido-banner{
+    position: relative;
+    color: white;;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-style: italic;
+}
+
+#servicios{
+    padding: 50px 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(180, 219, 255, 0.295);
+}
+#servicios img{
+    border-radius: 30%;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    
+}
+#servicios div{
+    padding: 30px 30px;
+}
+#servicios div h4{
+    color:rgb(86, 87, 87);
+    font-size: 20px;
+    margin: 15px 0px;
+}
+#servicios div p{
+    color: #4d4d5c;
+    font-size: 18px;
+}
+
+#servicios{
+    flex-direction: column;
+    
+}
+
+footer{
+    background-color: rgb(11, 42, 71);
+    text-align: center;
+    color: aliceblue;
+    padding: 20px;
+}
 .tres_comidas{
     display: flex;
 }
 
-textarea{
-    
-}
