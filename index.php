@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habitos saludables</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="style-login.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="alimentacion.php">Alimentación</a>
-        </nav>
-    </header>
-
-    <h1>Habitos saludables</h1>
+    <div class="todo">
+        <div class="form">
+            <img src="images/login.png" alt="" class="logo">
+            <h1 class="titulo">Iniciar Sesión</h1>
+            <form action="inicio.php" method="get">
+                <label for="">Email</label>
+                <input type="email">
+                <label for="">Contraseña</label>
+                <input type="password">
+                <input type="submit" value="Iniciar Sesión">
+            </form>
+            <span class="text-footer">¿Aún no te has registrado?<a href="registro.php"> Registrate</a>
+            </span>
+            
+        </div>
+    </div>
 </body>
 </html>
