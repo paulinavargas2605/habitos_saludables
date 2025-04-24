@@ -15,7 +15,7 @@ class RutinasController {
             'nombre' => 'Press inclinado con mancuernas',
             'series' => 4,
             'repeticiones' => '8-10',
-            'imagen' => 'press_inclinado.jpg'
+            'imagen' => 'press_inclinado.webp'
           ],
           [
             'nombre' => 'Pec Deck',
