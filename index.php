@@ -9,7 +9,7 @@
 <body>
     <div class="todo">
         <div class="form">
-            <img src="/habitos_saludables/images/logo1.png" alt="" class="logo">
+            <img src="/habitos_saludables/public/images/logo1.png" alt="" class="logo">
             <h1 class="titulo">Iniciar Sesión</h1>
             <form action="/habitos_saludables/views/inicio/inicio.php" method="get">
                 <label for="">Email</label>

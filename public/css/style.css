@@ -4,6 +4,17 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+nav a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+a:-webkit-any-link {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 header{
     height: 100px;
     padding: 0 50px;
@@ -12,7 +23,7 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: rgb(180, 219, 255);
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .logo {

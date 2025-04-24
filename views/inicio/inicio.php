@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img src="/habitos_saludables/images/logo1.png" class="logo">
+        <img src="/habitos_saludables/public/images/logo1.png" class="logo">
         <nav>
         <?php include_once dirname(__DIR__) . '/nav.php'; ?>
         </nav>
@@ -20,13 +20,13 @@
     </section>
     <section id="servicios">
         <div>
-            <img src="/habitos_saludables/images/ejercicio.jpg">
+            <img src="/habitos_saludables/public/images/ejercicio.jpg">
             <h4>Recomendaciones de rutina</h4>
             <p>¡Descubre la rutina ideal para ti!</p> 
             <a href="rutina.php" class="boton-saber-mas">Saber más</a>
         </div>
         <div>
-            <img src="/habitos_saludables/images/alimentacion.jpg">
+            <img src="/habitos_saludables/public/images/alimentacion.jpg">
             <h4>Recomendaciones de alimentación</h4>
             <p>¡Descubre la alimentación ideal para ti!</p> 
             <a href="alimentacion.php" class="boton-saber-mas">Saber más</a>

@@ -9,7 +9,7 @@ class RutinasController {
             'nombre' => 'Press de banca',
             'series' => 3,
             'repeticiones' => '10-12',
-            'imagen' => 'press_banca.jpg'
+            'imagen' => 'bench-press.jpg'
           ],
           [
             'nombre' => 'Press inclinado con mancuernas',
@@ -21,7 +21,7 @@ class RutinasController {
             'nombre' => 'Pec Deck',
             'series' => 3,
             'repeticiones' => '12',
-            'imagen' => 'pec_deck.jpg'
+            'imagen' => 'Pec-Deck.png'
           ]
         ],
         'piernas' => [
@@ -29,19 +29,19 @@ class RutinasController {
             'nombre' => 'Prensa de piernas',
             'series' => 4,
             'repeticiones' => '10-15',
-            'imagen' => 'prensa_piernas.jpg'
+            'imagen' => 'Prensa-piernas.jpg'
           ],
           [
             'nombre' => 'Extensión de piernas',
             'series' => 3,
             'repeticiones' => '12-15',
-            'imagen' => 'extension_piernas.jpg'
+            'imagen' => 'Extension-piernas.jpg'
           ],
           [
             'nombre' => 'Curl femoral',
             'series' => 3,
             'repeticiones' => '10-12',
-            'imagen' => 'curl_femoral.jpg'
+            'imagen' => 'Curl-femoral.jpg'
           ]
         ],
         'espalda' => [
@@ -49,19 +49,19 @@ class RutinasController {
             'nombre' => 'Remo en máquina',
             'series' => 3,
             'repeticiones' => '8-12',
-            'imagen' => 'remo_maquina.jpg'
+            'imagen' => 'Remo-máquina.jpg'
           ],
           [
             'nombre' => 'Jalón al pecho',
             'series' => 4,
             'repeticiones' => '10-15',
-            'imagen' => 'jalon_pecho.jpg'
+            'imagen' => 'Jalon-pecho.jpg'
           ],
           [
             'nombre' => 'Remo con barra',
             'series' => 3,
             'repeticiones' => '10',
-            'imagen' => 'remo_barra.jpg'
+            'imagen' => 'Remo-barra.jpg'
           ]
         ],
         'brazos' => [
@@ -69,41 +69,21 @@ class RutinasController {
             'nombre' => 'Curl de bíceps con barra',
             'series' => 3,
             'repeticiones' => '10-12',
-            'imagen' => 'curl_barra.jpg'
+            'imagen' => 'Curl-barra.jpg'
           ],
           [
             'nombre' => 'Fondos en paralelas',
             'series' => 3,
             'repeticiones' => '8-10',
-            'imagen' => 'fondos_paralelas.jpg'
+            'imagen' => 'Fondos-paralelas.png'
           ],
           [
             'nombre' => 'Curl con mancuerna alternado',
             'series' => 3,
             'repeticiones' => '12',
-            'imagen' => 'curl_mancuerna.jpg'
+            'imagen' => 'Curl- alternado.png'
           ]
         ],
-        'abdomen' => [
-          [
-            'nombre' => 'Crunch en máquina',
-            'series' => 4,
-            'repeticiones' => '15-20',
-            'imagen' => 'crunch_maquina.jpg'
-          ],
-          [
-            'nombre' => 'Elevación de piernas',
-            'series' => 3,
-            'repeticiones' => '12-15',
-            'imagen' => 'elevacion_piernas.jpg'
-          ],
-          [
-            'nombre' => 'Plancha abdominal',
-            'series' => 3,
-            'repeticiones' => '30 seg',
-            'imagen' => 'plancha.jpg'
-          ]
-        ]
       ];
       
 

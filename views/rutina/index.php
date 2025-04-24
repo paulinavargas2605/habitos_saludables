@@ -8,11 +8,8 @@
 </head>
 <body>
     <header>
-        <img src="/habitos_saludables/images/logo1.png" class="logo">
-        
+        <img src="/habitos_saludables/public/images/logo1.png" class="logo">
         <?php include_once dirname(__DIR__) . '/nav.php'; ?>
-
-
     </header>
     <h1>Rutinas de ejercicio</h1>
     <h1>Selecciona la parte del cuerpo</h1>
@@ -27,7 +24,6 @@
       <option value="piernas" <?= ($parte == 'piernas') ? 'selected' : '' ?>>Piernas</option>
       <option value="espalda" <?= ($parte == 'espalda') ? 'selected' : '' ?>>Espalda</option>
       <option value="brazos" <?= ($parte == 'brazos') ? 'selected' : '' ?>>Brazos</option>
-      <option value="abdomen" <?= ($parte == 'abdomen') ? 'selected' : '' ?>>Abdomen</option>
     </select>
     <button type="submit">Mostrar máquinas</button>
   </form>
@@ -38,7 +34,7 @@
     <?php foreach ($maquinasSeleccionadas as $maquina) : ?>
       <li class="maquina">
         <h3><?= htmlspecialchars($maquina['nombre']) ?></h3>
-        <img src="/habitos_saludables/images/<?= htmlspecialchars($maquina['imagen']) ?>" alt="<?= htmlspecialchars($maquina['nombre']) ?>" width="200">
+        <img src="/habitos_saludables/public/images/maquinas/<?= htmlspecialchars($maquina['imagen']) ?>" alt="<?= htmlspecialchars($maquina['nombre']) ?>" width="200">
         <p><strong>Series:</strong> <?= $maquina['series'] ?> repeticiones</p>
         <p><strong>Repeticiones por serie:</strong> <?= htmlspecialchars($maquina['repeticiones']) ?></p>
       </li>

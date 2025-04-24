@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <img src="/habitos_saludables/images/logo1.png" class="logo">
+    <img src="/habitos_saludables/public/images/logo1.png" class="logo">
         <nav>
             <?php include_once dirname(__DIR__) . '/nav.php'; ?>
         </nav>
