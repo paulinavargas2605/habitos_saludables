@@ -3,6 +3,7 @@ class RutinasController {
   public function index() {
     $parte = $_GET['parte'] ?? null;
 
+    // array con los datos de las rutinas dependiendo la parte de cuerpo a trabjar
     $maquinas = [
         'pecho' => [
           [
@@ -89,7 +90,9 @@ class RutinasController {
 
     $maquinasSeleccionadas = [];
 
+    //en este if, se verifica que la variable parte tenga valor y revisa que sea parte del array de máquinas
     if ($parte && array_key_exists($parte, $maquinas)) {
+      //se guarda los datos en la variable para despues mostrarlos en la vista
       $maquinasSeleccionadas = $maquinas[$parte];
     }
 
