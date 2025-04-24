@@ -32,7 +32,7 @@ h1{
 
 #banner{
     padding: 0 50px;
-    background-image: url(./images/banner.jpeg);
+    background-image: url(../images/banner.jpeg);
     height: 50vh;
     background-size:cover;
     background-position:center;
@@ -100,4 +100,6 @@ footer{
 .tres_comidas{
     display: flex;
 }
+
+
 

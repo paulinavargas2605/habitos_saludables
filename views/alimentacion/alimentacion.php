@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alimentación</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/habitos_saludables/public/css/style.css">
 </head>
 <body>
 <header>
-    <img src="images/logo1.png" class="logo">
+    <img src="/habitos_saludables/images/logo1.png" class="logo">
         <nav>
-            <a href="inicio.php">Inicio</a>
-            <a href="rutina.php">Rutinas</a>
-            <a href="alimentacion.php">Alimentación</a>
+            <?php include_once dirname(__DIR__) . '/nav.php'; ?>
         </nav>
     </header>
     <h1>Habitos de alimentación</h1>

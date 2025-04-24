@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="style-login.css">
+    <link rel="stylesheet" href="/habitos_saludables/public/css/style-login.css">
 </head>
 <body>
     <div class="todo">
@@ -26,7 +26,7 @@
                 <input type="password">
                 <input type="submit" value="Registrarse">
             </form>
-            <span class="text-footer">¿Ya estás registrado?<a href="index.php">Iniciar Sesión</a>
+            <span class="text-footer">¿Ya estás registrado?<a href="/habitos_saludables/index.php" >Iniciar Sesión</a>
             </span>
             
         </div>
