@@ -203,6 +203,38 @@ button:hover {
     width: 70%;
 }
 
+#banner-alimentacion{
+    padding: 0 50px;
+    background-image: url(../images/comida_saludable.jpg);
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    align-content: center;
+}
+
+.contenido-banner-alimentacion h3{
+    font-size: 30px;
+    font-weight: 400;
+    padding: 10px 0;
+    font-family: italic;
+}
+
+.contenido-banner-alimentacion h3 span{
+    font-weight: 600;
+}
+
+.contenido-banner-alimentacion{
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    height: auto; 
+    background-color: #f0f0f0;
+    padding-left: 20px;
+    width: 70%;
+}
+
+
 .menu a {
     color: #fff;
     text-transform: uppercase;
@@ -285,6 +317,10 @@ button:hover {
     .lista-maquinas {
       grid-template-columns: 1fr;
     }
+
+    .lista-comidas {
+        grid-template-columns: 1fr;
+      }
   
     .container {
       padding: 10px;
@@ -300,6 +336,13 @@ button:hover {
         margin: 0 auto;
         display: block;
     }
+
+    .comida img {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
     
       /* Alineamos el contenido mejor para pantallas pequeñas */
     .lista-maquinas {
@@ -307,8 +350,18 @@ button:hover {
         gap: 15px;
         padding: 0 10px;
     }
+
+    .lista-comidas {
+        grid-template-columns: 1fr; /*se muestra una sola columna */
+        gap: 15px;
+        padding: 0 10px;
+    }
     
     .maquina {
+        padding: 10px;
+    }
+
+    .comida {
         padding: 10px;
     }
 

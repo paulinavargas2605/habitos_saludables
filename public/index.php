@@ -36,3 +36,4 @@ if (file_exists($archivo)) {
     // Si el archivo del controlador no existe, se muestra un mensaje de error
     echo "Archivo de controlador '$archivo' no encontrado.";
 }
+?>

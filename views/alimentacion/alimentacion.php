@@ -8,97 +8,67 @@
     <link rel="icon" type="image/png" href="/habitos_saludables/public/images/logo1.png">
 </head>
 <body>
-<header>
-    <img src="/habitos_saludables/public/images/logo1.png" class="logo">
-        <nav>
-            <?php include_once dirname(__DIR__) . '/nav.php'; ?>
-        </nav>
+    <header>
+        <img src ="/habitos_saludables/public/images/logo1.png" class="logo">
+        <!-- Llama el archivo que tiene el menu de navegacion -->
+        <?php include_once dirname(__DIR__) . '/nav.php'; ?>
     </header>
-    <h1>Habitos de alimentación</h1>
 
-    <h2>DESAYUNOS</h2>
-    <textarea rows="23" cols="60">
-Avena con fruta
-
-Avena cocida en agua o leche.
-
-Trozos de plátano, manzana o cualquier fruta de temporada.
-
-Semillas de chía o linaza (opcional).
-
-Pan integral con aguacate y huevo
-
-1 rebanada de pan integral.
-
-Medio aguacate.
-
-1 huevo cocido o al sartén con poco aceite.
-
-Batido de plátano y avena
-
-Plátano + avena + leche (puede ser vegetal o de vaca).
-
-Licuar todo y tomar frío.
-    </textarea>
-
-    <div class="tres_comidas">
+    <section id="banner-alimentacion">
+        <div class="contenido-banner-alimentacion">
+            <h3><span>Alimentos saludables</span><br>La alimentación saludable no es una moda, es una forma diaria de cuidarte mejor.</h3>
+        </div>
+    </section>
+    
+    <div class="container">
         
+        <h1>Selecciona la comida del día</h1>
+        
+        <!-- Formulario para seleccionar una opción y enviarla al controller -->
+        <form method="GET" action="/habitos_saludables/public/index.php">
+
+        <!-- Se define el controlador que se va a usar al enviar el formulario -->
+        <input type="hidden" name="controlador" value="alimentacion">
+        <!-- Se define el metodo al que se le va a enviar el formulario -->
+        <input type="hidden" name="accion" value="index">
+
+        <!-- Menú desplegable con las comidas del día, se le asigna
+        el valor a cada una y mantenemos la seleccion marcada despues de enviar los datos  -->
+        <select name="tipo_alimentacion">
+            <option value="">-- Selecciona --</option>
+            <option value="desayuno" <?= ($tipo_alimentacion == 'desayuno') ? 'selected' : '' ?>>Desayuno</option>
+            <option value="almuerzo" <?= ($tipo_alimentacion == 'almuerzo') ? 'selected' : '' ?>>Almuerzo</option>
+            <option value="cena" <?= ($tipo_alimentacion == 'cena') ? 'selected' : '' ?>>Cena</option>
+            <option value="snack" <?= ($tipo_alimentacion == 'snack') ? 'selected' : '' ?>>Snack</option>
+        </select>
+        <button type="submit">Mostrar comidas</button>
+        </form>
+        <!-- Se muestra la lista de comidas si se encontraron para la opción seleccionada -->
+        <?php if (!empty($tipo_seleccionado)) : ?>
+        <h2><?= ucfirst(htmlspecialchars($tipo_alimentacion)) ?>:</h2>
+        <ul class="lista-comidas">
+        
+        <!-- Se recorre el array de platos y se muestra la informacion de cada una -->
+        <?php foreach ($tipo_seleccionado as $tipo) : ?>
+            <li class="comida">
+            <h3><?= htmlspecialchars($tipo['nombre']) ?></h3>
+            <img src="/habitos_saludables/public/images/comidas/<?= htmlspecialchars($tipo['imagen']) ?>" alt="<?= htmlspecialchars($tipo['nombre']) ?>" width="200">
+            <p><strong>Ingredientes:</strong> <?= implode(', ', $tipo['ingredientes']) ?></p>
+            <p><strong>Calorías:</strong> <?= htmlspecialchars($tipo['calorias_aprox']) ?></p>
+            <br>
+            </li>
+        <?php endforeach;?>
+        </ul>
+        
+        <!-- Si no hay comidas pero sí se seleccionó una opción, se muestra mensaje -->
+        <?php elseif (isset($tipo_seleccionado) && $tipo_seleccionado): ?>
+        <p>No hay comidas para la opción seleccionada.</p>
+        <?php endif;?>
+    
     </div>
-
-    <h2>ALMUERZOS</h2>
-
-    <textarea rows="25" cols="60">
-Lentejas con arroz y ensalada
-
-Lentejas guisadas con verduras.
-
-Arroz blanco o integral.
-
-Ensalada de tomate y zanahoria rallada.
-
-Pechuga de pollo a la plancha con puré de papa
-
-Pollo sazonado con especias (ajo, pimienta, orégano).
-
-Puré de papa con un chorrito de aceite de oliva.
-
-Vegetales cocidos o ensalada fresca.
-
-Tortilla de verduras
-
-Huevos batidos con espinaca, cebolla, zanahoria.
-
-Puedes agregar un poquito de queso rallado.
-
-Acompañar con arroz o pan integral.
-    </textarea>
-
-    <h2>CENAS</h2>
-
-    <textarea rows="20" cols="60">
-Sopa de verduras con huevo duro
-
-Caldo con zanahoria, papa, cebolla y espinaca.
-
-1 huevo duro al final.
-
-Pan integral al lado si quieres algo más consistente.
-
-Arepa o tortilla con queso bajo en grasa
-
-Hecha en sartén sin aceite.
-
-Rellena con queso fresco, aguacate o vegetales salteados.
-
-Ensalada de atún
-
-Lechuga, tomate, zanahoria rallada, atún en agua.
-
-Limón y aceite de oliva como aderezo.
-    </textarea>
-
     <footer>
         &copy:2025 FitCheck (Todos los derechos reservados)
     </footer>
 </body>
+
 </html>
