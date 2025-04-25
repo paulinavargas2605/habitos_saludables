@@ -11,7 +11,7 @@
         <div class="form">
             <img src="images/login.png" alt="" class="logo">
             <h1 class="titulo">Registrarse</h1>
-            <form action="inicio.php" method="get">
+            <form action="../inicio/inicio.php" method="get">
                 <label for="">Nombre de Usuario</label>
                 <input type="text">
                 <label for="">Edad</label>
