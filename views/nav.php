@@ -3,4 +3,5 @@
     <a href="/habitos_saludables/views/inicio/inicio.php">Inicio</a>
     <a href="/habitos_saludables/public/index.php?controlador=rutinas&accion=index">Rutinas</a>
     <a href="/habitos_saludables/public/index.php?controlador=alimentacion&accion=index">Alimentación</a>
+    <a href="/habitos_saludables/index.php">Salir</a>
 </nav>
