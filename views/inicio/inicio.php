@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitCheck</title>
     <link rel="stylesheet" href="/habitos_saludables/public/css/style.css">
+    <link rel="icon" type="image/png" href="/habitos_saludables/public/images/logo1.png">
 </head>
 <body>
     <header>

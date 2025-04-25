@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="/habitos_saludables/public/css/style-login.css">
+    <link rel="icon" type="image/png" href="public/images/logo1.png">
 </head>
 <body>
     <div class="todo">

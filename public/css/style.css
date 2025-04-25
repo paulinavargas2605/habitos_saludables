@@ -202,3 +202,150 @@ button:hover {
     padding-left: 20px;
     width: 70%;
 }
+
+.menu a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    /* esto quita el subrayado */
+    padding: 0px 10px;
+    transition: 0.4s;
+}
+
+#check {
+    display: none;
+}
+
+.mostrar-menu .esconder-menu {
+    font-size: 30px;
+    cursor: pointer;
+    display:none;
+    transition: 0.4s;
+}
+
+.mostrar-menu {
+    order: 1;
+}
+
+/* ----- Estilos Responsive ----- */
+@media screen and (max-width: 768px) {
+
+    header {
+      flex-direction: column;
+      height: auto;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .logo {
+      height: 80px;
+      margin: 10px 0;
+    }
+  
+    .display-menu, .esconder-menu{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #A4BFE0;
+        /* left: 0; */
+        right: -100%;
+        top: 0;
+        text-align: center;
+        padding: 100px 0px;
+        z-index: 100;
+        transition: 0.8s;
+    }
+
+    .menu a{
+        display: block;
+        padding: 20px;
+    }
+
+    .esconder-menu{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+  
+    .contenido-banner h3,
+    .contenido-banner-rutina h3 {
+      font-size: 20px;
+      text-align: center;
+    }
+  
+    .contenido-banner-rutina {
+      width: 100%;
+      padding: 10px;
+      justify-content: center;
+      text-align: center;
+    }
+  
+    #servicios {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    #servicios div {
+      padding: 15px;
+    }
+  
+    .tres_comidas {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    form {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    select, button {
+      width: 100%;
+    }
+  
+    .lista-maquinas {
+      grid-template-columns: 1fr;
+    }
+  
+    .container {
+      padding: 10px;
+    }
+
+    h1, h2, h3, p {
+        font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+    }
+    
+    .maquina img {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+      /* Alineamos el contenido mejor para pantallas pequeñas */
+    .lista-maquinas {
+        grid-template-columns: 1fr; /*se muestra una sola columna */
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .maquina {
+        padding: 10px;
+    }
+
+    .contenido-banner-rutina h3 {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+        text-align: center;
+    }
+    
+    .contenido-banner-rutina {
+        width: 100%;
+        padding: 0 10px;
+        justify-content: center;
+    }
+}
+  
