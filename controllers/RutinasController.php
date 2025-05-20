@@ -1,103 +1,64 @@
 <?php
-class RutinasController {
-  public function index() {
-    $parte = $_GET['parte'] ?? null;
 
-    // array con los datos de las rutinas dependiendo la parte de cuerpo a trabjar
-    $maquinas = [
-        'pecho' => [
-          [
-            'nombre' => 'Press de banca',
-            'series' => 3,
-            'repeticiones' => '10-12',
-            'imagen' => 'bench-press.jpg'
-          ],
-          [
-            'nombre' => 'Press inclinado con mancuernas',
-            'series' => 4,
-            'repeticiones' => '8-10',
-            'imagen' => 'press_inclinado.webp'
-          ],
-          [
-            'nombre' => 'Pec Deck',
-            'series' => 3,
-            'repeticiones' => '12',
-            'imagen' => 'Pec-Deck.png'
-          ]
-        ],
-        'piernas' => [
-          [
-            'nombre' => 'Prensa de piernas',
-            'series' => 4,
-            'repeticiones' => '10-15',
-            'imagen' => 'Prensa-piernas.jpg'
-          ],
-          [
-            'nombre' => 'Extensión de piernas',
-            'series' => 3,
-            'repeticiones' => '12-15',
-            'imagen' => 'Extension-piernas.jpg'
-          ],
-          [
-            'nombre' => 'Curl femoral',
-            'series' => 3,
-            'repeticiones' => '10-12',
-            'imagen' => 'Curl-femoral.jpg'
-          ]
-        ],
-        'espalda' => [
-          [
-            'nombre' => 'Remo en máquina',
-            'series' => 3,
-            'repeticiones' => '8-12',
-            'imagen' => 'Remo-máquina.jpg'
-          ],
-          [
-            'nombre' => 'Jalón al pecho',
-            'series' => 4,
-            'repeticiones' => '10-15',
-            'imagen' => 'Jalon-pecho.jpg'
-          ],
-          [
-            'nombre' => 'Remo con barra',
-            'series' => 3,
-            'repeticiones' => '10',
-            'imagen' => 'Remo-barra.jpg'
-          ]
-        ],
-        'brazos' => [
-          [
-            'nombre' => 'Curl de bíceps con barra',
-            'series' => 3,
-            'repeticiones' => '10-12',
-            'imagen' => 'Curl-barra.jpg'
-          ],
-          [
-            'nombre' => 'Fondos en paralelas',
-            'series' => 3,
-            'repeticiones' => '8-10',
-            'imagen' => 'Fondos-paralelas.png'
-          ],
-          [
-            'nombre' => 'Curl con mancuerna alternado',
-            'series' => 3,
-            'repeticiones' => '12',
-            'imagen' => 'Curl- alternado.png'
-          ]
-        ],
-      ];
-      
+require_once __DIR__ . '/../config/Database.php';
 
-    $maquinasSeleccionadas = [];
+class RutinasController
+{
+  public function index()
+  {
+    $parte = $_GET['parte'] ?? '';
+    $objetivo = $_GET['objetivo'] ?? '';
 
-    //en este if, se verifica que la variable parte tenga valor y revisa que sea parte del array de máquinas
-    if ($parte && array_key_exists($parte, $maquinas)) {
-      //se guarda los datos en la variable para despues mostrarlos en la vista
-      $maquinasSeleccionadas = $maquinas[$parte];
+    $conn = Database::connect();
+
+    // Obtener partes del cuerpo (músculos)
+    $musculosResult = $conn->query("SELECT DISTINCT Nombre FROM musculo");
+    $partesCuerpo = $musculosResult->fetch_all(MYSQLI_ASSOC);
+
+    // Obtener objetivos
+    $objetivosResult = $conn->query("SELECT DISTINCT Nombre FROM objetivo");
+    $objetivos = $objetivosResult->fetch_all(MYSQLI_ASSOC);
+
+    // Consulta de ejercicios
+    $sql = "
+        SELECT e.Id, e.Nombre, e.Descripcion, e.Series, e.Repeticiones, e.imagen
+        FROM ejercicio e
+        INNER JOIN ejercicio_musculo em ON e.Id = em.Id_ejercicio
+        INNER JOIN musculo m ON em.Id_musculo = m.Id
+        INNER JOIN ejercicio_objetivo eo ON e.Id = eo.Id_ejercicio
+        INNER JOIN objetivo o ON eo.Id_objetivo = o.Id
+        WHERE 1 = 1
+    ";
+
+    $params = [];
+    $types = "";
+
+    if ($parte) {
+        $sql .= " AND m.Nombre = ?";
+        $params[] = $parte;
+        $types .= "s";
     }
 
-    // Pasamos la parte y las máquinas a la vista
-    require_once '../views/rutina/index.php';
-  }
-}
+    if ($objetivo) {
+        $sql .= " AND o.Nombre = ?";
+        $params[] = $objetivo;
+        $types .= "s";
+    }
 
+    $stmt = $conn->prepare($sql);
+    if (!empty($params)) {
+        $stmt->bind_param($types, ...$params);
+    }
+
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $ejercicios = $result->fetch_all(MYSQLI_ASSOC);
+
+    $stmt->close();
+    $conn->close();
+
+    require_once __DIR__ . '/../views/rutina/index.php';
+  }
+
+  
+}

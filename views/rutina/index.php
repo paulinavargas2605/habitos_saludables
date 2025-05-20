@@ -1,5 +1,13 @@
+<?php
+$parte = $parte ?? '';
+$objetivo = $objetivo ?? '';
+$ejercicios = $ejercicios ?? [];
+$partesCuerpo = $partesCuerpo ?? [];
+$objetivos = $objetivos ?? [];
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +17,7 @@
 </head>
 <body>
     <header>
-        <img src ="/habitos_saludables/public/images/logo1.png" class="logo">
-        <!-- Llama el archivo que tiene el menu de navegacion -->
+        <img src="/habitos_saludables/public/images/logo1.png" class="logo">
         <?php include_once dirname(__DIR__) . '/nav.php'; ?>
     </header>
 
@@ -20,55 +27,58 @@
         </div>
     </section>
     
-  <div class="container">
-    
-    <h1>Selecciona la parte del cuerpo que desea trabajar</h1>
-    
-    <!-- Formulario para seleccionar una sola parte del cuerpo y enviarla al controller -->
-    <form method="GET" action="/habitos_saludables/public/index.php">
+    <div class="container">
+        <h1>Selecciona la parte del cuerpo que deseas trabajar</h1>
 
-      <!-- Se define el controlador que se va a usar al enviar el formulario -->
-      <input type="hidden" name="controlador" value="rutinas">
-      <!-- Se define el metodo al que se le va a enviar el formulario -->
-      <input type="hidden" name="accion" value="index">
+        <form method="GET" action="/habitos_saludables/public/index.php">
+            <input type="hidden" name="controlador" value="rutinas">
+            <input type="hidden" name="accion" value="index">
 
-      <!-- Menú desplegable con las partes del cuerpo, se le asigna
-      el valor a cada una y mantenemos la seleccion marcada despues de enviar los datos  -->
-      <select name="parte">
-        <option value="">-- Selecciona --</option>
-        <option value="pecho" <?= ($parte == 'pecho') ? 'selected' : '' ?>>Pecho</option>
-        <option value="piernas" <?= ($parte == 'piernas') ? 'selected' : '' ?>>Piernas</option>
-        <option value="espalda" <?= ($parte == 'espalda') ? 'selected' : '' ?>>Espalda</option>
-        <option value="brazos" <?= ($parte == 'brazos') ? 'selected' : '' ?>>Brazos</option>
-      </select>
-      <button type="submit">Mostrar máquinas</button>
-    </form>
+            <label for="parte">Parte del cuerpo:</label>
+            <select name="parte" id="parte">
+                <option value="">-- Selecciona --</option>
+                <?php foreach ($partesCuerpo as $musculo): ?>
+                    <option value="<?= htmlspecialchars($musculo['Nombre']) ?>" <?= ($parte === $musculo['Nombre']) ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($musculo['Nombre']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
 
-      <!-- Se muestra la lista de máquinas si se encontraron para la parte seleccionada -->
-      <?php if (!empty($maquinasSeleccionadas)) : ?>
-      <h2>Máquinas para ejercitar <?= htmlspecialchars($parte) ?>:</h2>
-      <ul class="lista-maquinas">
-      
-      <!-- Se recorre el array de máquinas y se muestra la informacion de cada una (imagen, series y repeticiones)-->
-      <?php foreach ($maquinasSeleccionadas as $maquina) : ?>
-        <li class="maquina">
-          <h3><?= htmlspecialchars($maquina['nombre']) ?></h3>
-          <img src="/habitos_saludables/public/images/maquinas/<?= htmlspecialchars($maquina['imagen']) ?>" alt="<?= htmlspecialchars($maquina['nombre']) ?>" width="200">
-          <p><strong>Series:</strong> <?= $maquina['series'] ?> repeticiones</p>
-          <p><strong>Repeticiones por serie:</strong> <?= htmlspecialchars($maquina['repeticiones']) ?></p>
-        </li>
-      <?php endforeach; ?>
-      </ul>
-    
-      <!-- Si no hay máquinas pero sí se seleccionó una parte, se muestra mensaje -->
-    <?php elseif ($parte): ?>
-      <p>No hay máquinas para la parte seleccionada.</p>
-    <?php endif; ?>
-  
-  </div>
-  <footer>
-    &copy:2025 FitCheck (Todos los derechos reservados)
-  </footer>
+            <label for="objetivo">Objetivo:</label>
+            <select name="objetivo" id="objetivo">
+                <option value="">-- Objetivo --</option>
+                <?php foreach ($objetivos as $obj): ?>
+                    <option value="<?= htmlspecialchars($obj['Nombre']) ?>" <?= ($objetivo === $obj['Nombre']) ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($obj['Nombre']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            
+            <button type="submit">Mostrar ejercicios</button>
+        </form>
+
+        <h2>Ejercicios para <?= htmlspecialchars($parte) ?></h2>
+
+        <?php if (count($ejercicios) > 0): ?>
+            <div class="lista-maquinas">
+                <?php foreach ($ejercicios as $ejercicio): ?>
+                    <div class="maquina">
+                        <?php if (!empty($ejercicio['imagen'])): ?>
+                            <img src="/habitos_saludables/public/images/maquinas/<?= htmlspecialchars($ejercicio['imagen']) ?>" alt="<?= htmlspecialchars($ejercicio['Nombre']) ?>">
+                        <?php endif; ?>
+                        <h3><?= htmlspecialchars($ejercicio['Nombre']) ?></h3>
+                        <p><strong>Descripción:</strong> <?= htmlspecialchars($ejercicio['Descripcion']) ?></p>
+                        <p><strong>Series:</strong> <?= $ejercicio['Series'] ?> | <strong>Repeticiones:</strong> <?= $ejercicio['Repeticiones'] ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <p>No hay ejercicios para esa parte del cuerpo y objetivo.</p>
+        <?php endif; ?>
+    </div>
+
+    <footer>
+        &copy; 2025 FitCheck (Todos los derechos reservados)
+    </footer>
 </body>
-
 </html>
