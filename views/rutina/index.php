@@ -68,7 +68,7 @@ $objetivos = $objetivos ?? [];
                         <?php endif; ?>
                         <h3><?= htmlspecialchars($ejercicio['Nombre']) ?></h3>
                         <p><strong>Descripción:</strong> <?= htmlspecialchars($ejercicio['Descripcion']) ?></p>
-                        <p><strong>Series:</strong> <?= $ejercicio['Series'] ?> | <strong>Repeticiones:</strong> <?= $ejercicio['Repeticiones'] ?></p>
+                        <p><strong>Series:</strong> <?= $ejercicio['Series'] ?> </br> <strong>Repeticiones:</strong> <?= $ejercicio['Repeticiones'] ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>

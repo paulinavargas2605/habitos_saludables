@@ -52,13 +52,22 @@ class RutinasController
 
     $stmt->execute();
     $result = $stmt->get_result();
-    $ejercicios = $result->fetch_all(MYSQLI_ASSOC);
+    $ejerciciosRaw = $result->fetch_all(MYSQLI_ASSOC);
 
     $stmt->close();
     $conn->close();
 
+    // FILTRO para eliminar duplicados por Id
+    $ejercicios = [];
+    $idsUnicos = [];
+
+    foreach ($ejerciciosRaw as $e) {
+      if (!in_array($e['Id'], $idsUnicos)) {
+          $ejercicios[] = $e;
+          $idsUnicos[] = $e['Id'];
+      }
+    }
+
     require_once __DIR__ . '/../views/rutina/index.php';
   }
-
-  
 }
