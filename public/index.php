@@ -1,8 +1,8 @@
 <?php
 // Se obtienen los valores de los parámetros 'controlador' y 'accion' de la URL.
 // Si no existen, se asignan valores por defecto: 'login' para controlador y 'index' para acción.
-$controlador = $_GET['controlador'] ?? 'login';
-$accion = $_GET['accion'] ?? 'index';
+$controlador = $_REQUEST['controlador'] ?? 'login';
+$accion = $_REQUEST['accion'] ?? 'index';
 
 // Se construye el nombre del controlador, agregando "Controller" al nombre con la primera letra en mayúscula
 $controlador = ucfirst($controlador) . 'Controller';
