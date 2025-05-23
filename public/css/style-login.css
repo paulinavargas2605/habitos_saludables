@@ -112,3 +112,19 @@ input[type="submit"]:hover {
 .text-footer a:hover {
     text-decoration: underline;
 }
+
+.boton-regresar {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background-color: #ddd;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.boton-regresar:hover {
+    background-color: #ccc;
+}
+

@@ -27,9 +27,15 @@ if (!isset($usuario)) {
 </head>
 <body>
 <div class="todo">
+    
     <div class="form">
+        <button type="button" class="boton-regresar" onclick="window.location.href='/habitos_saludables/views/inicio/inicio.php'">
+            Regresar
+        </button>
         <img src="/habitos_saludables/public/images/logo1.png" alt="Logo" class="logo">
         <h1 class="titulo">Editar Perfil</h1>
+        
+       
 
         <?php if (!empty($errores)): ?>
             <div class="errores">
@@ -70,7 +76,6 @@ if (!isset($usuario)) {
 
             <input type="submit" value="Actualizar Perfil">
         </form>
-
     </div>
 </div>
 </body>

@@ -63,7 +63,7 @@ unset($_SESSION['errores'], $_SESSION['exito']);
 
 
         <span class="text-footer">¿Ya estás registrado?
-            <a href="/habitos_saludables/index.php">Iniciar Sesión</a>
+            <a href="/habitos_saludables/views/login/index.php">Iniciar Sesión</a>
         </span>
     </div>
 </div>
