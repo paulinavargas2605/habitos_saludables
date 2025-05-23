@@ -34,26 +34,29 @@ $objetivos = $objetivos ?? [];
             <input type="hidden" name="controlador" value="rutinas">
             <input type="hidden" name="accion" value="index">
 
-            <label for="parte">Parte del cuerpo:</label>
-            <select name="parte" id="parte">
-                <option value="">-- Selecciona --</option>
-                <?php foreach ($partesCuerpo as $musculo): ?>
-                    <option value="<?= htmlspecialchars($musculo['Nombre']) ?>" <?= ($parte === $musculo['Nombre']) ? 'selected' : '' ?>>
-                        <?= htmlspecialchars($musculo['Nombre']) ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-
-            <label for="objetivo">Objetivo:</label>
-            <select name="objetivo" id="objetivo">
-                <option value="">-- Objetivo --</option>
-                <?php foreach ($objetivos as $obj): ?>
-                    <option value="<?= htmlspecialchars($obj['Nombre']) ?>" <?= ($objetivo === $obj['Nombre']) ? 'selected' : '' ?>>
-                        <?= htmlspecialchars($obj['Nombre']) ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-            
+                <label for="parte">Parte del cuerpo:</label>
+                <select name="parte" id="parte">
+                    <option value="">-- Selecciona --</option>
+                    <?php foreach ($partesCuerpo as $musculo): ?>
+                        <option value="<?= htmlspecialchars($musculo['Nombre']) ?>" <?= ($parte === $musculo['Nombre']) ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($musculo['Nombre']) ?>                            </option>
+                    <?php endforeach; ?>
+                </select>
+                
+                <label for="objetivo">Objetivo:</label>
+                <select name="objetivo" id="objetivo">
+                    <option value="">-- Objetivo --</option>
+                    <?php foreach ($objetivos as $obj): ?>
+                        <option value="<?= htmlspecialchars($obj['Nombre']) ?>" <?= ($objetivo === $obj['Nombre']) ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($obj['Nombre']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                
+                <div class="buscador-ejercicio">
+                    <label for="buscar">Buscar ejercicio:</label>
+                    <input type="text" name="buscar" id="buscar" placeholder="Ej: Sentadilla" value="<?= htmlspecialchars($_GET['buscar'] ?? '') ?>">
+                </div>
             <button type="submit">Mostrar ejercicios</button>
         </form>
 
