@@ -32,10 +32,9 @@ if (!isset($usuario)) {
         <button type="button" class="boton-regresar" onclick="window.location.href='/habitos_saludables/views/inicio/inicio.php'">
             Regresar
         </button>
+
         <img src="/habitos_saludables/public/images/logo1.png" alt="Logo" class="logo">
         <h1 class="titulo">Editar Perfil</h1>
-        
-       
 
         <?php if (!empty($errores)): ?>
             <div class="errores">
@@ -75,6 +74,13 @@ if (!isset($usuario)) {
             <input type="password" id="contrasena" name="contrasena">
 
             <input type="submit" value="Actualizar Perfil">
+        </form>
+
+        <!-- Botón rojo para ir a eliminar.php -->
+        <form action="../views/usuario/eliminar.php" method="post" style="margin-top: 15px;">
+            <button type="submit" style="font-size:20px; background-color: red; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; width:100%">
+                Eliminar Perfil
+            </button>
         </form>
     </div>
 </div>
